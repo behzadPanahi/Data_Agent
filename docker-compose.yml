@@ -1,0 +1,10 @@
+services:
+  trino:
+    image: trinodb/trino:484
+    container_name: data-agent-trino-v2
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - ./data/trino/catalog:/etc/trino/catalog
+      - ./trino/jvm.config:/etc/trino/jvm.config:ro
+    restart: unless-stopped
